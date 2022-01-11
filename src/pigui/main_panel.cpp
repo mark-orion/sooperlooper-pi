@@ -221,7 +221,7 @@ MainPanel::init()
 	
 	//rowsizer->Add (1, 1, 1);
 
-	_sync_choice = new ChoiceBox (_top_panel, ID_SyncChoice, true, wxDefaultPosition, wxSize (130, 20));
+	_sync_choice = new ChoiceBox (_top_panel, ID_SyncChoice, true, wxDefaultPosition, wxSize (130, 40));
 	_sync_choice->set_label (wxT("sync to"));
 	_sync_choice->SetFont (sliderFont);
 	_sync_choice->value_changed.connect (mem_fun (*this,  &MainPanel::on_syncto_change));
@@ -229,7 +229,7 @@ MainPanel::init()
 	
 	rowsizer->Add (_sync_choice, 0, wxALL|wxEXPAND, 2);
 	
-	_tempo_bar = new SpinBox(_top_panel, ID_TempoSlider, 0.0f, 10000.0f, 110.0f, true, wxDefaultPosition, wxSize(120, 20));
+	_tempo_bar = new SpinBox(_top_panel, ID_TempoSlider, 0.0f, 10000.0f, 110.0f, true, wxDefaultPosition, wxSize(120, 40));
 	_tempo_bar->set_units(wxT("bpm"));
 	_tempo_bar->set_label(wxT("tempo"));
 	_tempo_bar->set_snap_mode (SpinBox::IntegerSnap);
@@ -251,7 +251,7 @@ MainPanel::init()
  	rowsizer->Add (_taptempo_button, 0, wxALL|wxEXPAND, 2);
 	
 
-	_eighth_cycle_bar = new SpinBox(_top_panel, ID_EighthSlider, 1.0f, 1024.0f, 16.0f, true, wxDefaultPosition, wxSize(110, 20));
+	_eighth_cycle_bar = new SpinBox(_top_panel, ID_EighthSlider, 1.0f, 1024.0f, 16.0f, true, wxDefaultPosition, wxSize(110, 40));
 	_eighth_cycle_bar->set_units(wxT(""));
 	_eighth_cycle_bar->set_label(wxT("8th/cycle"));
 	_eighth_cycle_bar->set_snap_mode (SpinBox::IntegerSnap);
@@ -262,7 +262,7 @@ MainPanel::init()
 	rowsizer->Add (_eighth_cycle_bar, 0, wxALL|wxEXPAND, 2);
 	
 
-	_quantize_choice = new ChoiceBox (_top_panel, ID_QuantizeChoice, true, wxDefaultPosition, wxSize (110, 20));
+	_quantize_choice = new ChoiceBox (_top_panel, ID_QuantizeChoice, true, wxDefaultPosition, wxSize (110, 40));
 	_quantize_choice->SetFont (sliderFont);
 	_quantize_choice->set_label (wxT("quantize"));
 	_quantize_choice->value_changed.connect (mem_fun (*this,  &MainPanel::on_quantize_change));
@@ -273,21 +273,21 @@ MainPanel::init()
 	_quantize_choice->append_choice (wxT("loop"), 3);
 	rowsizer->Add (_quantize_choice, 0, wxALL|wxEXPAND, 2);
 
-	_mute_quant_check = new CheckBox(_top_panel, ID_MuteQuantCheck, wxT("mute qt"), true, wxDefaultPosition, wxSize(78, 18));
+	_mute_quant_check = new CheckBox(_top_panel, ID_MuteQuantCheck, wxT("mute qt"), true, wxDefaultPosition, wxSize(78, 40));
 	_mute_quant_check->SetFont(sliderFont);
 	_mute_quant_check->SetToolTip(wxT("quantize mute operations"));
 	_mute_quant_check->value_changed.connect (mem_fun (*this, &MainPanel::on_mute_quant_check));
 	_mute_quant_check->bind_request.connect (sigc::bind(mem_fun (*this, &MainPanel::on_bind_request), wxT("mute_quantized")));
 	rowsizer->Add (_mute_quant_check, 0, wxALL|wxEXPAND, 2);
 
-	_odub_quant_check = new CheckBox(_top_panel, ID_OdubQuantCheck, wxT("odub qt"), true, wxDefaultPosition, wxSize(78, 18));
+	_odub_quant_check = new CheckBox(_top_panel, ID_OdubQuantCheck, wxT("odub qt"), true, wxDefaultPosition, wxSize(78, 40));
 	_odub_quant_check->SetFont(sliderFont);
 	_odub_quant_check->SetToolTip(wxT("quantize overdub operations"));
 	_odub_quant_check->value_changed.connect (mem_fun (*this, &MainPanel::on_odub_quant_check));
 	_odub_quant_check->bind_request.connect (sigc::bind(mem_fun (*this, &MainPanel::on_bind_request), wxT("overdub_quantized")));
 	rowsizer->Add (_odub_quant_check, 0, wxALL|wxEXPAND, 2);
 
-	_repl_quant_check = new CheckBox(_top_panel, ID_ReplQuantCheck, wxT("repl qt"), true, wxDefaultPosition, wxSize(78, 18));
+	_repl_quant_check = new CheckBox(_top_panel, ID_ReplQuantCheck, wxT("repl qt"), true, wxDefaultPosition, wxSize(78, 40));
 	_repl_quant_check->SetFont(sliderFont);
 	_repl_quant_check->SetToolTip(wxT("quantize replace and substitute operations"));
 	_repl_quant_check->value_changed.connect (mem_fun (*this, &MainPanel::on_repl_quant_check));
@@ -305,7 +305,7 @@ MainPanel::init()
 	rowsizer = new wxBoxSizer(wxHORIZONTAL);
 	//rowsizer->Add (1, 1, 1);
 
-	_xfade_bar = new SpinBox(_top_panel, ID_XfadeSlider, 0.0f, 128000.0f, 64.0f, true, wxDefaultPosition, wxSize(100, 20));
+	_xfade_bar = new SpinBox(_top_panel, ID_XfadeSlider, 0.0f, 128000.0f, 64.0f, true, wxDefaultPosition, wxSize(100, 40));
 	_xfade_bar->set_units(wxT(""));
 	_xfade_bar->set_label(wxT("xfade"));
 	_xfade_bar->SetToolTip(wxT("operation crossfade length in samples"));
@@ -316,7 +316,7 @@ MainPanel::init()
 	_xfade_bar->bind_request.connect (sigc::bind(mem_fun (*this,  &MainPanel::on_bind_request), wxT("fade_samples")));
 	rowsizer->Add (_xfade_bar, 0, wxALL|wxEXPAND, 2);
 
-	_common_ingain_bar = new SliderBar(_top_panel, ID_InGainControl, 0.0f, 1.0f, 1.0f, true, wxDefaultPosition, wxSize(132,20));
+	_common_ingain_bar = new SliderBar(_top_panel, ID_InGainControl, 0.0f, 1.0f, 1.0f, true, wxDefaultPosition, wxSize(132,40));
 	_common_ingain_bar->set_units(wxT("dB"));
 	_common_ingain_bar->set_label(wxT("input gain"));
 	_common_ingain_bar->set_scale_mode(SliderBar::ZeroGainMode);
@@ -326,7 +326,7 @@ MainPanel::init()
 	_common_ingain_bar->bind_request.connect (sigc::bind(mem_fun (*this, &MainPanel::on_bind_request), wxT("input_gain")));
 	rowsizer->Add (_common_ingain_bar, 0, wxALL|wxEXPAND, 2);
 	
-	_common_dry_bar = new SliderBar(_top_panel, ID_DryControl, 0.0f, 1.0f, 1.0f, true, wxDefaultPosition, wxSize(132,20));
+	_common_dry_bar = new SliderBar(_top_panel, ID_DryControl, 0.0f, 1.0f, 1.0f, true, wxDefaultPosition, wxSize(132,40));
 	_common_dry_bar->set_units(wxT("dB"));
 	_common_dry_bar->set_label(wxT("main in mon"));
 	_common_dry_bar->set_scale_mode(SliderBar::ZeroGainMode);
@@ -336,7 +336,7 @@ MainPanel::init()
 	_common_dry_bar->bind_request.connect (sigc::bind(mem_fun (*this, &MainPanel::on_bind_request), wxT("dry")));
 	rowsizer->Add (_common_dry_bar, 0, wxALL|wxEXPAND, 2);
 
-	_common_wet_bar = new SliderBar(_top_panel, ID_WetControl, 0.0f, 1.0f, 1.0f, true, wxDefaultPosition, wxSize(132,20));
+	_common_wet_bar = new SliderBar(_top_panel, ID_WetControl, 0.0f, 1.0f, 1.0f, true, wxDefaultPosition, wxSize(132,40));
 	_common_wet_bar->set_units(wxT("dB"));
 	_common_wet_bar->set_label(wxT("main out"));
 	_common_wet_bar->set_scale_mode(SliderBar::ZeroGainMode);
@@ -348,20 +348,20 @@ MainPanel::init()
 	
 
 	
-	_round_check = new CheckBox (_top_panel, ID_RoundCheck, wxT("round"), true, wxDefaultPosition, wxSize(60, 20));
+	_round_check = new CheckBox (_top_panel, ID_RoundCheck, wxT("round"), true, wxDefaultPosition, wxSize(60, 40));
 	_round_check->SetFont (sliderFont);
 	_round_check->value_changed.connect (mem_fun (*this, &MainPanel::on_round_check));
 	_round_check->bind_request.connect (sigc::bind(mem_fun (*this,  &MainPanel::on_bind_request), wxT("round")));
 	rowsizer->Add (_round_check, 0, wxALL|wxEXPAND, 2);
 
-	_relsync_check = new CheckBox (_top_panel, ID_RelSyncCheck, wxT("rel sync"), true, wxDefaultPosition, wxSize(75, 20));
+	_relsync_check = new CheckBox (_top_panel, ID_RelSyncCheck, wxT("rel sync"), true, wxDefaultPosition, wxSize(75, 40));
 	_relsync_check->SetFont (sliderFont);
 	_relsync_check->value_changed.connect (mem_fun (*this, &MainPanel::on_relsync_check));
 	_relsync_check->bind_request.connect (sigc::bind(mem_fun (*this,  &MainPanel::on_bind_request), wxT("relative_sync")));
 	rowsizer->Add (_relsync_check, 0, wxALL|wxEXPAND, 2);
 	
 
-	_smart_eighths_check = new CheckBox(_top_panel, ID_SmartEighthCheck, wxT("auto 8th"), true, wxDefaultPosition, wxSize(80, 18));
+	_smart_eighths_check = new CheckBox(_top_panel, ID_SmartEighthCheck, wxT("auto 8th"), true, wxDefaultPosition, wxSize(80, 40));
 	_smart_eighths_check->SetFont(sliderFont);
 	_smart_eighths_check->SetToolTip(wxT("auto adjust 8ths per cycle with tempo"));
 	_smart_eighths_check->value_changed.connect (mem_fun (*this, &MainPanel::on_smart_eighths_check));

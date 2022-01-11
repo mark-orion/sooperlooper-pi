@@ -342,8 +342,8 @@ bool GuiApp::OnInit()
 	//loopctrl.connect();
 
 	// Show it and tell the application that it's our main window
-	_frame->SetSizeHints(800, 300);
-	_frame->SetSize(_screen_pos.x, _screen_pos.y, 800, 300);
+	_frame->SetSizeHints(800, 400);
+	_frame->SetSize(_screen_pos.x, _screen_pos.y, 800, 400);
 
 	SetTopWindow(_frame);
 
