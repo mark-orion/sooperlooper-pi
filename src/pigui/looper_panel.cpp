@@ -190,7 +190,7 @@ LooperPanel::init()
 	
 	colsizer = new wxBoxSizer(wxVERTICAL);
 
-	
+/*	
  	colsizer->Add (_record_button, 0, wxLEFT, 5);
 
  	colsizer->Add (_overdub_button, 0, wxTOP|wxLEFT, 5);
@@ -198,7 +198,7 @@ LooperPanel::init()
  	colsizer->Add (_multiply_button, 0, wxTOP|wxLEFT, 5);
 	
 	mainSizer->Add (colsizer, 0, wxEXPAND|wxBOTTOM, 0);
-
+*/
 
 	colsizer = new wxBoxSizer(wxVERTICAL);
 	_maininsizer = new wxBoxSizer(wxHORIZONTAL);
@@ -560,7 +560,7 @@ LooperPanel::init()
 
 	// extra rows
         rowsizer = new wxBoxSizer(wxHORIZONTAL);
-	rowsizer->Add (_pause_button, 0, wxTOP|wxLEFT, 2);
+//	rowsizer->Add (_pause_button, 0, wxTOP|wxLEFT, 2);
 	rowsizer->Add (_mute_button, 0, wxTOP|wxLEFT, 2);
         rowsizer->Add (_solo_button, 0, wxTOP|wxLEFT, 2);
 	colsizer->Add (rowsizer, 0, wxEXPAND|wxLEFT, 1);
@@ -573,11 +573,15 @@ LooperPanel::init()
 	colsizer->Add (rowsizer, 0, wxEXPAND|wxLEFT, 1);
 
 	mainSizer->Add (colsizer, 1, wxEXPAND|wxRIGHT, 0);
-
         mainSizer->Add (_rightSelbar, 0, wxEXPAND|wxLEFT, 0);
-
-
         mainVSizer->Add (mainSizer, 1, wxEXPAND, 0);
+
+        rowsizer = new wxBoxSizer(wxHORIZONTAL);
+        rowsizer->Add (_record_button, 0, wxTOP|wxLEFT, 5);
+        rowsizer->Add (_overdub_button, 0, wxTOP|wxLEFT, 5);
+        rowsizer->Add (_multiply_button, 0, wxTOP|wxLEFT, 5);
+        rowsizer->Add (_pause_button, 0, wxTOP|wxLEFT, 5);
+        mainVSizer->Add (rowsizer, 0, wxEXPAND|wxLEFT, 0);
         mainVSizer->Add (_bottomSelbar, 0, wxEXPAND|wxLEFT, 0);
 
 
